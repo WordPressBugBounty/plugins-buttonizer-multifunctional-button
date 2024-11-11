@@ -3,8 +3,8 @@ Contributors: Buttonizer, freemius
 Buy plugin: https://buttonizer.io
 Tags: Conversion, action button, call, marketing, Social Sharing
 Requires at least: 4.7
-Tested up to: 6.6
-Stable tag: 3.4.6
+Tested up to: 6.7
+Stable tag: 3.4.7
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -259,6 +259,14 @@ Languages can have a different direction of writing and reading? While languages
 
 
 == Changelog ==
+
+= 3.4.7 =
+Release date: November 11, 2024
+
+**Changelog:**
+- WordPress 6.7 ready
+
+If you experience bugs, problems or you just have some feedback, let us know on our [Buttonizer community](https://community.buttonizer.pro/)!
 
 = 3.4.6 =
 Release date: October 24, 2024
