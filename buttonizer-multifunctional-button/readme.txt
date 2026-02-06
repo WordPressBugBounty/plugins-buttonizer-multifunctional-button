@@ -1,77 +1,85 @@
-﻿=== Smart Floating / Sticky Buttons - Call, Sharing, Chat Widgets & More – Buttonizer ===
+﻿=== Buttonizer - Floating Menus, Sticky Buttons, & Popup Builder ===
 Contributors: Buttonizer, freemius
 Buy plugin: https://buttonizer.io
 Tags: Conversion, action button, call, marketing, Social Sharing
 Requires at least: 4.7
-Tested up to: 6.8
-Stable tag: 3.4.10
+Tested up to: 6.9
+Stable tag: 3.4.12
 Requires PHP: 7.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Button builder. WhatsApp Chat, Facebook Messenger, Telegram, Call, SMS, Email & More. Unlimited Click to Chat, Floating Buttons, Contact Forms, Sticky Menus & floating widgets. With dynamic Page Rules. Use the WhatsApp widget Pop-up to convert your visitors.
+Floating Menus, Sticky Buttons, & Popup builder. WhatsApp Chat, Facebook Messenger, Telegram, Live Chat, Call, SMS, Email & more. Unlimited Click-to-Chat, Contact Forms, Floating Buttons, Sticky Menus & Floating Widgets. Use the WhatsApp widget popup to boost conversions.
 
 == Description ==
 
 [Features](https://buttonizer.io/features/) | [Knowledge base](https://r.buttonizer.io/support/knowledgebase) | [Community](https://r.buttonizer.io/support/community)
 
-From WhatsApp Chat, Facebook Messenger, Floating contact form, WhatsApp widgets (New: WhatsApp Business), Click to Chat, Call, Email etc. Buttonizer is the most versatile <strong>Smart Floating Action (Sticky) Button plugin</strong> for WordPress.
+Buttonizer is a powerful platform to create <strong>floating menus, sticky buttons, and popups</strong> for your WordPress site.
+
+Choose from many options, including WhatsApp Chat and WhatsApp widgets, Facebook Messenger, floating contact form, Click to Chat, Call, Email, SMS and the list goes on.
 
 * Choose **from over 40 click actions and chat buttons**
-* Setup within 10 seconds + smart front-end interface (WYSIWYG Editor)
-* Templates ready or choose from all possible styling options
+* **Fully integrated** live chat widget via Formilla to keep users on your website
 * Build <strong>unlimited</strong> single floating buttons or interactive sticky menus
-* Floating popups and contact forms
+* **Popup Builder** with dozens of professionally designed marketing popups
 * Smart filters like show on scroll, device, pages and specific times
+* Create high-converting floating menus (see screenshots below)
 * Analytics dashboard to see all interactions, leads and conversions
 
-https://www.youtube.com/watch?v=7zWvVY8mLEQ
+Watch the video below to learn how easy it is to add Buttonizer floating menus, sticky buttons, and popups to your website:
+
+https://www.youtube.com/watch?v=9t49F9touXo
 
 = WhatsApp Chat, Business and 40+ click to chat channels 💬 =
 
-Buttonizer is specially designed in creating easy, smart floating chat buttons. You can connect your visitors with WhatsApp or WhatsApp Business with ease. You can even create a WhatsApp Popup, work with multiple whatsapp phone numbers (agents), manage opening and closing times and use page rules.
+Buttonizer is specially designed in creating easy, smart floating chat buttons. You can connect with your visitors with WhatsApp or WhatsApp Business with ease. You can even create a WhatsApp Popup, work with multiple WhatsApp phone numbers (agents), manage opening and closing times and use page rules.
 
 📱 Mobile: Navigates to WhatsApp Mobile App.
 
 💻 Desktop: Navigates to WhatsApp Desktop App / Web WhatsApp page(web.whatsapp.com)
 
-Watch the video below to learn more on adding a Facebook Messenger Chat widget to your website:
-
-= CLICK TO CHAT CHANNELS 🚀 =
-* **WhatsApp Chat**. Add your phone number and set a custom text message that your web visitors can send to you. Integrates with WhatsApp business
+= Click-to-Chat and many other options 🚀 =
+* **WhatsApp Chat**. Add your phone number, your picture, and create a custom message to personalize the experience for your visitors. Integrates with WhatsApp business.
 * WhatsApp Chat Widget
 * Click to **Call**
 * Click to **Email**
 * Click to **SMS**
 * Web **URL**
 * **Click to Chat**
- * Facebook Messenger Widget
+ * Formilla Chat Widget (directly integrated into new accounts)
+ * Facebook Messenger Chat Widget (with popup)
  * WhatsApp Chat Widget (with popup)
+ * Telegram (with popup)
  * X (Twitter) Direct Message
  * Slack
  * Microsoft Teams
  * Snapchat
- * Skype
  * Signal
  * LINE
- * Telegram
- * Wechat
+ * WeChat
  * Viber
  * Join Signal group
 * Browser share menu
-* **Social Sharing buttons**
- * Share on Facebook
- * Share on X (Twitter)
- * Share on Instagram
- * Share on Whatsapp
- * Share on  LinkedIn
- * Share on Pinterest
- * Share on Email
- * Share on VKontakte
- * Share on Waze
- * Share on Line
- * Share on Behance
-* **Open pop-up (optional: with contact form)**
+* **Social Media Icons and Social Sharing buttons**
+ * Facebook
+ * X (Twitter)
+ * Instagram
+ * TikTok
+ * WhatsApp
+ * LinkedIn
+ * Pinterest
+ * Email
+ * Telegram
+ * VKontakte
+ * Waze
+ * LINE
+ * Behance
+ * Reddit
+ * Tumblr
+ * Weibo
+* **Open pop-up**
+ * Formilla Popups (directly integrated into new accounts)
  * Poptin
  * Elementor Popup
  * Popup Maker
@@ -95,12 +103,11 @@ Watch the video below to learn more on adding a Facebook Messenger Chat widget t
 With Buttonizer you can customize almost everything. Create a floating text button (without icon), floating text button with icon or only a floating button with an icon.
 
 + Import and export your button templates easily (very nice if you have multiple websites)
-+ Change the position of you button
++ Change the position of your button
 * Import and export button templates
-* Button and interaction **color**
+* Button and interaction color
 * Border radius
-* **Font Awesome 4.7**, **5** & **6** pro full support, over **2.025 available icons**
-
+* **Font Awesome 4.7**, **5**, **6** & **7** pro full support. Over **2.025 available icons**
 * Icon, size and interaction color
 * **Add label** to the floating action button (optional)
 * Change **label text color** and background color
@@ -109,32 +116,58 @@ With Buttonizer you can customize almost everything. Create a floating text butt
 * Add **background image**
 * Add **custom class and ID** to each button
 
-= Create floating menu’s =
-With Buttonizer it is possible to add multiple floating action buttons to one position. In that case all floating buttons are hidden in one button. The moment a visitor clicks on your Floating Action Button it will _pop_ all specific buttons you’ve set for that page. Watch the screenshots below to see examples of different options to show the floating menu.
+= Create floating menus / sticky menus =
+With Buttonizer it is possible to add multiple floating action buttons to one position. In that case all floating buttons are hidden in one button menu. The moment a visitor clicks on your Floating Action Button it will _pop_ all specific buttons you’ve set for that page. Please take a look at the screenshots below to see powerful examples of different floating menus / sticky menus.
 
 * **Default action** - Opens the floating menu and puts the buttons on top of each other
 * **Pop** - Same as the default action but with a more active motion
 * **Corner circle** - Open buttons in quarter circle
 * **Square** - Show all buttons on top of each other at the same time (sticky buttons on the side of your website)
 
+= Live Chat, Chatbots, and Popups via Formilla =
+
+Buttonizer accounts get Formilla accounts integrated automatically. Both products are managed by the same team, so that means you get access to awesome features such as:
+
+* **Unlimited Live Chats (free):** Chat with your visitors while they're on your website with our embedded widget; no need to send users to another browser tab!
+
+* **Mobile Apps for iPhone, iPad, and Android Devices (free):** Chat via your mobile device or tablet by using our iPhone/iPad or Android apps!
+
+* **Desktop Apps for Windows & Mac machines (free):** Chat via our dedicated desktop apps instead of our web dashboard to get online even faster.
+
+* **Custom Branding, Colors, & Themes (free):** Customize your chat widgets to match your site's brand. Change the color of the chat button/widget, chat message and font color, backgrounds, etc. Upload your own online and offline live chat images to use in your header, footer, etc. to encourage customers to live chat!
+
+* **Multi-Language Support and Custom Text (free):** Customize the text of your chat button/widget in any language of your choice! Easily customize the English text or modify it to read in Spanish, Portuguese, Italian, French, Polish, Chinese, Indonesian, and many more!
+
+* **Popup Builder (free with tiered limits):**  Popup Builder with dozens of professionally designed marketing popups. Multiple popup types including lightbox/modals, corner widgets, and website bars.  Announce a special sale, offer a coupon code, or market virtually anything to your visitors.
+
+* **Real-time Visitor Monitoring:** See the number of active visitors on your website in real-time, and initiate live chats with them.  View the visitor's country, recently viewed web pages, referring site (e.g. did they come from a Google search, etc.), are they new vs. returning, IP address, OS in use (Windows, Mac, iOS, Android, etc.), browser, and more. Live Chat visitor monitoring is a paid feature and comes with our Premium package.
+
+* **A.I. Chatbots:** A.I. Chatbots leverage ChatGPT's incredible Artificial Intelligence technology to dramatically reduce support time. Chatbots can automatically respond to common visitor questions around the clock (paid feature add-on).  Check out our [ChatGPT Chatbots](https://www.formilla.com/blog/getting-started-with-a-helper-chat-bot) tutorial to learn more.
+
+* **Custom Chatbots:** Chatbots work around the clock to automatically qualify leads, book meetings, and provide information about your products or services to customers, even without having to chat with a live person! Chatbots can be added to any Premium package as a paid feature add-on.  Check out our [Custom Chatbots](https://www.formilla.com/blog/how-to-create-custom-chat-bots) tutorial to learn more.
+
+* **Proactive Chat:** Enable proactive chat to trigger automatically after a defined number of seconds (Premium packages). You can also configure a chatbot to do the same, with even more control over the user flow. For example, a chatbot can proactively popup to engage visitors and qualify them as leads before speaking with a live agent. This works with multiple types of custom chatbots you can create for your business.
+
 
 = Example use cases for Buttonizer =
 
-<strong>+ Buttonizer VS live chat alternatives</strong>. Buttonizer gives you the ability to manage different chat options at the same time in different conditions. Each visitor has a different communication need. With live chat you give the visitor only one option. When you let your visitors chat with you using chat apps like Facebook Messenger, WhatsApp, Viber, Telegram, etc, you give them the freedom of chatting with you whenever they go. Why not get best of both worlds:
+* <strong>The Buttonizer advantage</strong>. Buttonizer gives you the ability to manage different chat options at the same time. Each visitor is unique, and has a different communication preference. When you let your visitors chat with you using chat apps like Facebook Messenger, WhatsApp, Viber, Telegram, etc, they have the freedom of chatting with you however they prefer, which increases engagement with your website.
 
-<strong>+ Launch your favorite live chat </strong>. You can use JavaScript as one of your click actions to launch other live chat products like Hubspot, Tawk.to, Tidio, Chatra, Formilla, Zoho, Zendesk, LiveChat, Crisp, Intercom and JivoChat.
+* <strong>Launch your favorite live chat</strong>. While Formilla Live Chat comes directly integrated, you can use JavaScript as one of your click actions to launch any other live chat product such as Hubspot, Tawk.to, Tidio, Chatra, Zoho, Zendesk, LiveChat, Crisp, Intercom and JivoChat.
 
-<strong>+ Connect with your visitors on WhatsApp Business</strong>. Connect WhatsApp Business to your site. Your visitors can start chatting with you on WhatsApp Business.
+* <strong>Connect with your visitors on WhatsApp Business</strong>. Connect WhatsApp Business to your site. Your visitors can start chatting with you on WhatsApp Business. You can create multiple different WhatsApp buttons for different departments or categories on your website to route chats to the proper staff.
 
-<strong>+ Setup different floating buttons on mobile and desktop </strong>. Show different chat buttons depending on the device where your visitor is using. Like show a call now and whatsapp button on mobile and a contact form, email and url on desktop.
+* <strong>Increase engagement using social sharing buttons</strong>. Buttonizer supports all the well known social sharing buttons. Increase social media engagement with one-click social sharing buttons from any page on your site.
 
-<strong>+ Add Click to call button</strong>. Show a phone icon and let your visitors click to call you. If you can show different local phone numbers based on page URL or available days and hours.
+* <strong>Boost your social media following</strong>. Include all your social media icons/channels as floating buttons anywhere on your website, or in your header, footer, right-rail, etc. Ensure visitors follow you across all your social channels so you're able to engage with them wherever they are.
 
-<strong>+ Setup two buttons on the same page with show on scroll</strong>. Impress your visitors by adding two different buttons that are visible or get hidden after a specific scroll depth. Look at the Buttonizer website as an example.
+* <strong>Setup different floating buttons on mobile and desktop</strong>. Show different chat buttons depending on the device your visitor is using. For example, show a Call Now and WhatsApp button on mobile and a contact form, email and URL on desktop.
 
-<strong>+ Show different action buttons for different pages </strong> You can use this feature to show separate widgets for different products on your website, show different buttons based on URL for WPML or multi-language sites, display different channels for your landing pages, and more.
+* <strong>Add Click-to-call button</strong>. Show a phone icon and let your visitors click to call you. You can show different local phone numbers based on page URL or available days and hours.
 
-= WHATSAPP CHAT POP UP =
+* <strong>Show different action buttons for different pages</strong>. You can use this feature to show separate widgets for different products on your website, show different buttons based on URL for WPML or multi-language sites, display different channels for your landing pages, and more.
+
+= WhatsApp Chat Popup =
 You can use WhatsApp as a regular chat button, but you can also add the WhatsApp pop up and let your visitors start the conversation while the visitors are on your website. You can also easily integrate with WhatsApp Business or your regular WhatsApp account. Once the visitors click on the send button, they’ll be redirected to WhatsApp to continue the conversation there.
 
 = Advanced JavaScript API =
@@ -152,7 +185,7 @@ Curious? [Learn how to use the API](https://community.buttonizer.pro/knowledgeba
 
 = Filter your buttons (show or hide on devices, different pages, during certain hours, etc.) =
 
-Choose whenever your buttons are visible. On desktop or mobile devices. On different pages or under page rule conditions. Whenever a user is logged in or during certain hours. Customize it to match your goals.
+Choose whenever your buttons are visible on **desktop** or **mobile** devices, different pages or under specific page rule conditions. You can even control if buttons should only display to logged in users, or during certain office hours. For example, you may want to show a **Click-to-Call** button and **WhatsApp Chat** button during office hours, but automatically show a custom **Contact Form** or **A.I. Chatbot** outside of your business hours.
 
 * Show/hide button on **desktop or mobile devices**
 * Show/hide when **page rules** are true (PRO):
@@ -166,11 +199,11 @@ Choose whenever your buttons are visible. On desktop or mobile devices. On diffe
  * Select at what time the button is visible or hidden for each day of the week
  * Exclude dates
 
-= But wait, there’s more! =
+= So many features! =
 * Track all your click actions in **Google Analytics**
 * Import extra **font-awesome libraries**
-* **Drag and drop** your buttons in the UI
-* **Auto save and revert changes**
+* **Drag and drop** your buttons on the UI
+* **Auto-save and revert changes**
 * A very [**active community**](https://community.buttonizer.pro/)
 * Add an **unlimited number** of floating / sticky **buttons**
 * Show buttons on scroll
@@ -178,16 +211,16 @@ Choose whenever your buttons are visible. On desktop or mobile devices. On diffe
 * Add an unlimited number of positions
 
 
-= One more thing. We like to Buzz =
-We are a team of developers dedicated to creating the best Floating Action Button for WordPress. We are adding over 5 new features each month based on the feedback we’re getting from our users.
+= One more thing! =
+We are a team of developers dedicated to creating a great Floating Menus and Sticky Buttons platform for WordPress. We are adding over five new features each month based on feedback we’re getting from our users.
 
 Download Buttonizer for free and be part of our growing community!
 
-Do you need support or have a question? [Check our Community](https://community.buttonizer.pro/) and [our knowledge base!](https://community.buttonizer.pro/knowledgebase).
+Need support or have a question? [Check our Community](https://community.buttonizer.pro/) and [our knowledge base!](https://community.buttonizer.pro/knowledgebase)
 
 Would you like private support? [Create a private support ticket here](https://community.buttonizer.pro/tickets).
 
-Buttonzier works great with all themes and page builders including Divi, Elementor, WPBakery, Visual Composer, WPBakery, Beaver, SiteOrigin, Gutenberg, Oxygen, Woocommerce, Zion and more
+Buttonizer works great with all themes and page builders including Divi, Elementor, WPBakery, Visual Composer, WPBakery, Beaver, SiteOrigin, Gutenberg, Oxygen, WooCommerce, Zion and more
 
 == Installation ==
 
@@ -211,11 +244,11 @@ Buttonzier works great with all themes and page builders including Divi, Element
 
 = What is a Floating Action Button and why should I use it? =
 
-A floating action button is a button that 'floats' on the right corner of your website.
+A floating action button is a button that 'floats' in the right corner of your website.
 
-Maybe you noticed already that a lot of applications (mobile and web) have their primary floating action button (FAB), on the right corner of their website or app. You see this a lot with chat funtions. The Floating Action Button is becoming a standard in application and webdesign. Webvisitors are getting more and more used to the fact that there is a floating action button which is the primary action you can make on that page, on the right corner of a website.
+Maybe you noticed already that a lot of applications (mobile and web) have their primary floating action button (FAB), on the right corner of their website or app. You see this a lot with chat functions. The Floating Action Button is becoming a standard in application and web design. Web visitors are getting more and more used to the fact that there is a floating action button which is the primary action you can make on that page, on the right corner of a website.
 
-The Buttonizer is a new way to give a boost to your number of interactions, actions and conversions from your website visitor by adding a Customizable Smart Multifunctional Floating Button in the corner of your website.
+Buttonizer is a new way to give a boost to your number of interactions, actions and conversions from your website visitor by adding a Customizable Smart Multifunctional Floating Button in the corner of your website.
 
 = What's the difference between floating action buttons or other conversion buttons? =
 
@@ -226,7 +259,7 @@ And the beauty of all: All actions are hidden in one button. The moment a visito
 In fact, Buttonizer is an addiction to use. Your website visitors will interact as never before.
 
 = Which buttons are available with Buttonizer? =
-WhatsApp chat, Facebook Messenger, Instagram, Email, SMS, Snapchat, X (Twitter), LinkedIn, Skype, Vkontakte, Phone (click to call), Telegram, Line, WeChat, Viber, Waze, Google maps, Poptin, Custom URL, Page Select.
+WhatsApp chat, Facebook Messenger, Instagram, TikTok, Email, SMS, Snapchat, X (Twitter), LinkedIn, Microsoft Teams, Vkontakte, Phone (click to call), Telegram, Line, WeChat, Viber, Waze, Google maps, Poptin, Custom URL, Page Select, and many more.
 
 = What widgets does Buttonizer support? =
 
@@ -244,7 +277,7 @@ You can also interact with widgets using the Widget JavaScript API.
 Please make sure you’ve chosen at least one button and clicked on the green “Publish” button. If you still don't see any changes on the live site, you can clear the cache of your website if you have a caching plugin.
 
 = How can I add a WhatsApp chat popup? =
-Download the wordpress plugin, choose the whatsapp templates, change your phone number, change the text and there you go. You can also choose the WhatsApp widget option to add a popup window. Don’t forget to enter the WhatsApp number with country code
+Download the WordPress plugin, choose the WhatsApp templates, change your phone number, change the text and there you go. You can also choose the WhatsApp widget option to add a popup window. Don’t forget to enter the WhatsApp number with country code
 E.g.
 country code +1
 number: 6123456789
@@ -259,8 +292,42 @@ Yes, you can choose for each button if you want to display the button on mobile,
 = Does Buttonizer support right-to-left languages? =
 Languages can have a different direction of writing and reading? While languages such as English are written and read from left to right, other languages might follow the right-to-left style of script. Just considering the sheer number of language speakers, it is obvious that Buttonizer could not stay behind and has made sure to reserve the layout of the user interface to support right-to-left languages.
 
+== External Services ==
+To provide icon libraries and animations, Buttonizer may use the following 3rd party services for performance reasons:
+* **Font Awesome** – Loads CSS and icon fonts based on the version selected by the user to display visual elements on floating buttons. Files are loaded from CDNs such as Font Awesome, Cloudflare, and BootstrapCDN. A separate account is not required to leverage either of these CDNs.
+* **Buttonizer CDN (powered by Cloudflare)** – Loads CSS animations and visual effects for button hover states, entry animations, and interactive effects. A separate account is not required to leverage this CDN.
+
+== Screenshots ==
+
+1. Create many different call/chat/contact actions such as WhatsApp, Messenger, Live Chat, Telegram, and 40+ others.
+2. This is a great example of the types of menus and buttons you can create to guide visitors and increase conversions every step of the way.
+3. Another cool example to illustrate the different styles of menus and actions such as call, email, chat, popup triggers, and so much more!
+4. Use our Popup Library with dozens of professionally designed marketing popups to increase sales.
+5. Comes with an integrated Live Chat widget that visitors can use right on your website to chat with you directly!
+6. Dramatically reduce support time by setting up a Helper Chatbot to automatically respond to common visitor questions using the power of A.I.
+7. Live Chat Dashboard where you can chat with your website visitors and view critical information such as pages visited, etc.
+8. Real-time Visitor Monitoring dashboard where you can monitor your visitors and initiate live chats proactively.
+9. Live chat with your visitors from your mobile device using our iPhone/iPad or Android apps. Receive push notifications for every chat!
+10. Not available to chat? Display our integrated contact form and receive an email as soon as someone submits it.
+11. Use our dashboard directly from within WordPress to edit your buttons and review conversion reports.
 
 == Changelog ==
+
+= 3.4.12 =
+Release date: January 12, 2026
+
+**Changelog:**
+- Bugfix
+
+If you experience bugs, problems or you just have some feedback, let us know on our [Buttonizer community](https://community.buttonizer.pro/)!
+
+= 3.4.11 =
+Release date: October 16, 2025
+
+**Changelog:**
+- Bugfix
+
+If you experience bugs, problems or you just have some feedback, let us know on our [Buttonizer community](https://community.buttonizer.pro/)!
 
 = 3.4.10 =
 Release date: September 25, 2025
@@ -1236,16 +1303,16 @@ List of new button actions:
   * Facebook Messenger Widget
   * X (Twitter) Direct Message
   * Snapchat
-  * Skype
+  * Microsoft Teams
   * LINE
   * Telegram
-  * Wechat
+  * WeChat
   * Viber
 * **Social Sharing buttons**
   * Facebook
   * X (Twitter)
   * Instagram
-  * Whatsapp
+  * WhatsApp
   * LinkedIn
   * Pinterest
   * Email
