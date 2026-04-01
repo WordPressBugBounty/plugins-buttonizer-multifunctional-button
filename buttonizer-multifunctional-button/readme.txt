@@ -4,7 +4,7 @@ Buy plugin: https://buttonizer.io
 Tags: Conversion, action button, call, marketing, Social Sharing
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 3.4.12
+Stable tag: 3.4.13
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -312,6 +312,14 @@ To provide icon libraries and animations, Buttonizer may use the following 3rd p
 11. Use our dashboard directly from within WordPress to edit your buttons and review conversion reports.
 
 == Changelog ==
+
+= 3.4.13 =
+Release date: April 1, 2026
+
+**Changelog:**
+- Bug fixes
+
+If you experience bugs, problems or you just have some feedback, let us know on our [Buttonizer community](https://community.buttonizer.pro/)!
 
 = 3.4.12 =
 Release date: January 12, 2026
@@ -1622,3 +1630,5 @@ Added new feature:
 
 = 1.0.2 =
 Launch of the Buttonizer Floating Action Button Plugin!
+
+

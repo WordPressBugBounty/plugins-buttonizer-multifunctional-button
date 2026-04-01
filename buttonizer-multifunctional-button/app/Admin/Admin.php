@@ -19,6 +19,7 @@ use Buttonizer\Utils\ManifestParser;
 use Buttonizer\Utils\Editor;
 use Buttonizer\Utils\PermissionCheck;
 use Buttonizer\Utils\Settings;
+use Buttonizer\Utils\SiblingPlugins;
 
 # No script kiddies
 defined('ABSPATH') or die('No script kiddies please!');
@@ -198,12 +199,31 @@ class Admin
             return "migration";
         }
 
-        // Set up Buttonizer
-        if (Settings::getSetting("finished_setup", false) === false) {
+        // Set up Buttonizer (also checks sibling plugins)
+        if (!$this->isButtonizerConnected()) {
             return "setup";
         }
 
         return "no-lock";
+    }
+
+    /**
+     * Check if Buttonizer signup has been completed.
+     * If not, tries to copy the connection from a sibling Buttonizer plugin.
+     * Returns true if the user has finished setup.
+     */
+    private function isButtonizerConnected(): bool
+    {
+        if (Settings::getSetting("finished_setup", false) !== false) {
+            return true;
+        }
+
+        // Try to copy connection from a sibling Buttonizer plugin
+        if (SiblingPlugins::copyConnectionFromSibling()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

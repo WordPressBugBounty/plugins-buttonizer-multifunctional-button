@@ -32,6 +32,10 @@ class Admin {
         add_action( 'admin_enqueue_scripts', [$this, 'adminAssets'] );
         // Add admin menu
         add_action( 'admin_menu', [$this, 'pluginAdminMenu'] );
+        // Add deprecation notice for legacy users
+        add_action( 'admin_notices', [$this, 'legacyDeprecationNotice'] );
+        // Add AJAX handler for dismissing notice
+        add_action( 'wp_ajax_buttonizer_dismiss_legacy_notice', [$this, 'dismissLegacyNotice'] );
     }
 
     /**
@@ -86,6 +90,7 @@ class Admin {
         // Plugin information, add links
         add_filter( "plugin_action_links_" . plugin_basename( BUTTONIZER_PLUGIN_DIR ), function ( $aLinks ) {
             $aButtonizerLinks = [
+                '<a href="' . admin_url( 'admin.php?page=Buttonizer&buttonizer_migrate=true' ) . '" style="color: #d63638; font-weight: bold;">' . __( '⚠️ Migrate to 3.0', 'buttonizer-multifunctional-button' ) . '</a>',
                 '<a href="https://community.buttonizer.pro/" target="_blank">' . __( 'Community forums', 'buttonizer-multifunctional-button' ) . '</a>',
                 '<a href="https://community.buttonizer.pro/knowledgebase" target="_blank">' . __( 'Knowledge base', 'buttonizer-multifunctional-button' ) . '</a>',
                 '<a href="' . admin_url( 'admin.php?page=Buttonizer' ) . '">' . __( 'Manage buttons', 'buttonizer-multifunctional-button' ) . '</a>',
@@ -187,6 +192,78 @@ class Admin {
         // Import our own template
         require_once BUTTONIZER_DIR . '/app/Legacy/Admin/Template.php';
         exit;
+    }
+
+    /**
+     * Show deprecation notice for legacy Buttonizer users
+     */
+    public function legacyDeprecationNotice() {
+        // Only show to administrators
+        if ( !PermissionCheck::hasPermission( true ) ) {
+            return;
+        }
+        // Check if notice was dismissed and when
+        $dismissedTime = get_option( 'buttonizer_legacy_notice_dismissed', 0 );
+        $currentTime = time();
+        $oneWeek = 7 * 24 * 60 * 60;
+        // 7 days in seconds
+        // If dismissed less than a week ago, don't show
+        if ( $dismissedTime && $currentTime - $dismissedTime < $oneWeek ) {
+            return;
+        }
+        $migrateUrl = admin_url( 'admin.php?page=Buttonizer&buttonizer_migrate=true' );
+        $nonce = wp_create_nonce( 'buttonizer_dismiss_legacy_notice' );
+        echo '
+        <div id="buttonizer-legacy-notice" class="notice notice-warning is-dismissible">
+            <p>
+                <strong>⚠️ ' . esc_html__( 'Buttonizer will stop functioning soon', 'buttonizer-multifunctional-button' ) . '</strong>
+            </p>
+            <p>
+                ' . esc_html__( 'You\'re currently using an outdated version of Buttonizer that is not actively maintained anymore.', 'buttonizer-multifunctional-button' ) . '<br>' . esc_html__( 'This version will be removed and stop functioning soon after', 'buttonizer-multifunctional-button' ) . ' <strong>' . esc_html__( 'July 1st, 2026', 'buttonizer-multifunctional-button' ) . '</strong>. ' . esc_html__( 'Migrate to our Buttonizer standalone version now, and your buttons will automatically transfer!', 'buttonizer-multifunctional-button' ) . '
+            </p>
+            <p>
+                <a href="' . esc_url( $migrateUrl ) . '" class="button button-primary">' . esc_html__( 'Migrate to 3.0', 'buttonizer-multifunctional-button' ) . '</a>
+                <a href="https://community.buttonizer.pro/knowledgebase/1122-standalone-vs-wordpress" target="_blank" class="button">' . esc_html__( 'Learn more', 'buttonizer-multifunctional-button' ) . '</a>
+            </p>
+        </div>
+        <script>
+        (function() {
+            var notice = document.getElementById("buttonizer-legacy-notice");
+            if (notice) {
+                notice.addEventListener("click", function(e) {
+                    if (e.target.classList.contains("notice-dismiss")) {
+                        fetch("' . admin_url( 'admin-ajax.php' ) . '", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                            body: "action=buttonizer_dismiss_legacy_notice&nonce=' . esc_js( $nonce ) . '"
+                        });
+                    }
+                });
+            }
+        })();
+        </script>
+        ';
+    }
+
+    /**
+     * AJAX handler to dismiss legacy notice
+     */
+    public function dismissLegacyNotice() {
+        // Verify nonce
+        if ( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'buttonizer_dismiss_legacy_notice' ) ) {
+            wp_send_json_error( 'Invalid nonce' );
+            return;
+        }
+        // Only administrators can dismiss
+        if ( !PermissionCheck::hasPermission( true ) ) {
+            wp_send_json_error( 'Permission denied' );
+            return;
+        }
+        // Store the current time when dismissed
+        update_option( 'buttonizer_legacy_notice_dismissed', time() );
+        wp_send_json_success();
     }
 
 }

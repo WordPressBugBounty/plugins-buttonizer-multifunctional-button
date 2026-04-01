@@ -75,7 +75,7 @@ class License {
                 'is_premium'       => false,
                 'has_addons'       => false,
                 'has_paid_plans'   => true,
-                'has_affiliation'  => 'all',
+                'has_affiliation'  => false,
                 'is_org_compliant' => true,
                 'menu'             => array(
                     'slug'       => 'Buttonizer',

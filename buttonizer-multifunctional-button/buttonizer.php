@@ -3,7 +3,7 @@
 * Plugin Name: Buttonizer - Smart Floating & Sticky Buttons
 * Plugin URI:  https://buttonizer.io
 * Description: The Buttonizer is a new way to give a boost to your number of interactions, actions and conversions from your website visitor by adding one or multiple Customizable Smart Floating Button in the corner of your website.
-* Version:     3.4.12
+* Version:     3.4.13
 * Author:      Buttonizer
 * Author URI:  https://buttonizer.io
 * License:     GPLv2 or later
@@ -24,7 +24,7 @@
 */
 
 // Define current Buttonizer version
-define('BUTTONIZER_VERSION', '3.4.12');
+define('BUTTONIZER_VERSION', '3.4.13');
 define('BUTTONIZER_PLUGIN_FILE', __FILE__);
 
 // Get environment vars
@@ -80,7 +80,7 @@ function pluginUninstallEvent()
 
     try {
         // Invalidate access token for security reasons on uninstall
-        (new \Buttonizer\Api\Connection\Disconnect)->disconnect();
+        (new \Buttonizer\Api\Connection\Disconnect)->disconnect(false);
     } catch (\Error $err) {
         // Errored out, nevermind then
     }
