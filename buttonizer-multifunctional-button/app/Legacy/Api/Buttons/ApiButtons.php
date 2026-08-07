@@ -13,7 +13,7 @@
 
 namespace Buttonizer\Legacy\Api\Buttons;
 
-use Buttonizer\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\PermissionCheck;
 
 /**
  * Buttons API
@@ -107,7 +107,8 @@ class ApiButtons
             'status' => 'success',
             'result' => (new \Buttonizer\Legacy\Frontend\Buttonizer($isNoAjaxRequest))->returnArray(),
             'warning' => \Buttonizer\Legacy\Frontend\Buttonizer::getLogs(),
-            'premium' => ButtonizerLicense()->can_use_premium_code()
+            // ButtonizerLicense() can be null in the free build (Freemius SDK stripped), so null-check before use.
+            'premium' => (ButtonizerLicense() && ButtonizerLicense()->can_use_premium_code())
         ];
     }
 

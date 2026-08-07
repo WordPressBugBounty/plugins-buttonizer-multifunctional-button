@@ -14,9 +14,9 @@
 namespace Buttonizer\Legacy\Admin;
 
 use Buttonizer\Admin\Admin as NewAdmin;
-use Buttonizer\Utils\Editor;
-use Buttonizer\Utils\PermissionCheck;
-use Buttonizer\Utils\Settings;
+use Buttonizer\Core\Utils\Editor;
+use Buttonizer\Core\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\Settings;
 # No script kiddies
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class Admin {
@@ -45,23 +45,15 @@ class Admin {
         if ( !PermissionCheck::hasPermission() ) {
             return;
         }
-        // Admin menu
+        // Admin menu - now points directly to migration page
         add_menu_page(
-            'Buttonizer Buttons',
+            'Buttonizer - Migrate to 3.0',
             'Buttonizer',
             'read',
             'Buttonizer',
             [$this, 'migrationAdminPage'],
             plugins_url( '/assets/images/wp-icon.png', BUTTONIZER_PLUGIN_DIR ),
             81
-        );
-        // Add submenu
-        add_submenu_page(
-            'Buttonizer',
-            'Migrate to 3.0',
-            __( 'Migrate to 3.0', 'buttonizer-multifunctional-button' ),
-            ( is_multisite() ? 'manage_options' : 'activate_plugins' ),
-            'admin.php?page=Buttonizer&buttonizer_migrate=true'
         );
         // Add community link
         add_submenu_page(
@@ -89,13 +81,7 @@ class Admin {
         );
         // Plugin information, add links
         add_filter( "plugin_action_links_" . plugin_basename( BUTTONIZER_PLUGIN_DIR ), function ( $aLinks ) {
-            $aButtonizerLinks = [
-                '<a href="' . admin_url( 'admin.php?page=Buttonizer&buttonizer_migrate=true' ) . '" style="color: #d63638; font-weight: bold;">' . __( '⚠️ Migrate to 3.0', 'buttonizer-multifunctional-button' ) . '</a>',
-                '<a href="https://community.buttonizer.pro/" target="_blank">' . __( 'Community forums', 'buttonizer-multifunctional-button' ) . '</a>',
-                '<a href="https://community.buttonizer.pro/knowledgebase" target="_blank">' . __( 'Knowledge base', 'buttonizer-multifunctional-button' ) . '</a>',
-                '<a href="' . admin_url( 'admin.php?page=Buttonizer' ) . '">' . __( 'Manage buttons', 'buttonizer-multifunctional-button' ) . '</a>',
-                '<a href="' . admin_url( 'admin.php?page=Buttonizer#/settings' ) . '">' . __( 'Settings', 'buttonizer-multifunctional-button' ) . '</a>'
-            ];
+            $aButtonizerLinks = ['<a href="https://community.buttonizer.pro/" target="_blank">' . __( 'Community forums', 'buttonizer-multifunctional-button' ) . '</a>', '<a href="https://community.buttonizer.pro/knowledgebase" target="_blank">' . __( 'Knowledge base', 'buttonizer-multifunctional-button' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=Buttonizer' ) . '">' . __( 'Migrate to 3.0', 'buttonizer-multifunctional-button' ) . '</a>'];
             return array_merge( $aLinks, $aButtonizerLinks );
         } );
     }
@@ -130,68 +116,6 @@ class Admin {
         if ( defined( "\\BUTTONIZER_LEGACY_REQUESTED_MIGRATION" ) && \BUTTONIZER_LEGACY_REQUESTED_MIGRATION === false && PermissionCheck::hasPermission( true ) ) {
             self::$showMigrationPage = true;
         }
-        // Register Buttonizer admin template
-        if ( !self::$showMigrationPage && isset( $_GET['page'] ) && $_GET['page'] === 'Buttonizer' && !ButtonizerLicense()->is_activation_mode() ) {
-            $this->getPluginAdminPage();
-            exit;
-        }
-    }
-
-    /**
-     * Get media and add scripts/styles that Buttonizer uses
-     */
-    public function getPluginAdminPage() {
-        // Add WordPress admin-header thing
-        header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
-        add_filter( 'show_admin_bar', '__return_false' );
-        remove_all_actions( 'wp_head' );
-        remove_all_actions( 'wp_print_styles' );
-        remove_all_actions( 'wp_print_head_scripts' );
-        remove_all_actions( 'wp_footer' );
-        remove_all_actions( 'wp_enqueue_scripts' );
-        wp_deregister_script( ['admin-bar'] );
-        wp_deregister_style( ['admin-bar'] );
-        // Require media manager
-        wp_enqueue_media();
-        $styles = '/assets/legacy/dashboard.css';
-        $path = '/assets/legacy/dashboard.min.js';
-        wp_register_script(
-            'buttonizer_admin_js',
-            plugins_url( $path . '?v=' . md5( BUTTONIZER_VERSION ), BUTTONIZER_PLUGIN_DIR ),
-            [],
-            false,
-            true
-        );
-        // Require wordpress style
-        wp_enqueue_style( 'buttonizer-css', plugins_url( $styles . '?v=' . md5( BUTTONIZER_VERSION ), BUTTONIZER_PLUGIN_DIR ) );
-        wp_localize_script( 'buttonizer_admin_js', 'buttonizer_admin', [
-            'ajax'                          => admin_url( 'admin-ajax.php' ),
-            'admin'                         => admin_url( 'admin.php' ),
-            'base_url'                      => get_site_url( '/' ),
-            "admin_base"                    => substr( admin_url(), 0, -1 ),
-            'can_send_errors'               => Settings::getSetting( "can_send_errors", false ),
-            'api'                           => get_rest_url() . 'buttonizer',
-            'nonce'                         => wp_create_nonce( 'wp_rest' ),
-            'version'                       => BUTTONIZER_VERSION,
-            'dir'                           => plugins_url( '', BUTTONIZER_PLUGIN_DIR ),
-            'localePath'                    => plugins_url( '/assets/legacy/locale', BUTTONIZER_PLUGIN_DIR ),
-            'locale'                        => Editor::getEditorLanguage(),
-            'assets'                        => plugins_url( '/assets/legacy', BUTTONIZER_PLUGIN_DIR ),
-            'templatesImgDir'               => plugins_url( '/assets/legacy/images/templates', BUTTONIZER_PLUGIN_DIR ),
-            'security'                      => wp_create_nonce( "save_buttonizer" ),
-            'fontawesome_current_version'   => FONTAWESOME_CURRENT_VERSION,
-            'fontawesome_current_integrity' => FONTAWESOME_CURRENT_INTEGRITY,
-            'permalink_structure'           => get_option( 'permalink_structure' ),
-            'php_version_supported'         => version_compare( PHP_VERSION, '7.0.0', '>' ),
-            'changelog_dialog_updated'      => BUTTONIZER_LAST_CHANGELOG_UPDATE,
-            'php_version'                   => PHP_VERSION,
-            'migration_version'             => BUTTONIZER_LAST_MIGRATION,
-            'legacy_version'                => true,
-        ] );
-        wp_enqueue_script( 'buttonizer_admin_js' );
-        // Import our own template
-        require_once BUTTONIZER_DIR . '/app/Legacy/Admin/Template.php';
-        exit;
     }
 
     /**
@@ -216,10 +140,10 @@ class Admin {
         echo '
         <div id="buttonizer-legacy-notice" class="notice notice-warning is-dismissible">
             <p>
-                <strong>⚠️ ' . esc_html__( 'Buttonizer will stop functioning soon', 'buttonizer-multifunctional-button' ) . '</strong>
+                <strong>⚠️ ' . esc_html__( 'Your Buttonizer version is outdated', 'buttonizer-multifunctional-button' ) . '</strong>
             </p>
             <p>
-                ' . esc_html__( 'You\'re currently using an outdated version of Buttonizer that is not actively maintained anymore.', 'buttonizer-multifunctional-button' ) . '<br>' . esc_html__( 'This version will be removed and stop functioning soon after', 'buttonizer-multifunctional-button' ) . ' <strong>' . esc_html__( 'July 1st, 2026', 'buttonizer-multifunctional-button' ) . '</strong>. ' . esc_html__( 'Migrate to our Buttonizer standalone version now, and your buttons will automatically transfer!', 'buttonizer-multifunctional-button' ) . '
+                ' . esc_html__( 'You\'re currently using an outdated version of Buttonizer that is not actively maintained anymore.', 'buttonizer-multifunctional-button' ) . '<br>' . esc_html__( 'As of', 'buttonizer-multifunctional-button' ) . ' <strong>' . esc_html__( 'July 2026', 'buttonizer-multifunctional-button' ) . '</strong>' . esc_html__( ', this version has limited functionality and no button editing capabilities.  Please migrate to our Buttonizer standalone version as soon as possible, and your buttons will automatically transfer.', 'buttonizer-multifunctional-button' ) . '
             </p>
             <p>
                 <a href="' . esc_url( $migrateUrl ) . '" class="button button-primary">' . esc_html__( 'Migrate to 3.0', 'buttonizer-multifunctional-button' ) . '</a>

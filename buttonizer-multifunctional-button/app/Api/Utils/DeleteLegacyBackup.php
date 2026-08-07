@@ -13,8 +13,8 @@
 
 namespace Buttonizer\Api\Utils;
 
-use Buttonizer\Utils\PermissionCheck;
-use Buttonizer\Utils\Settings;
+use Buttonizer\Core\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\Settings;
 
 /**
  * Delete Legacy Backup API

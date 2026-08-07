@@ -17,7 +17,7 @@ use Buttonizer\Legacy\Frontend\Group\Button\Button;
 use Buttonizer\Legacy\Frontend\Group\Group;
 use Buttonizer\Legacy\Frontend\PageRules\PageRules;
 use Buttonizer\Legacy\Frontend\TimeSchedules\TimeSchedules;
-use Buttonizer\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\PermissionCheck;
 class Buttonizer {
     private $buttonGroups;
 

@@ -3,7 +3,7 @@
 * Plugin Name: Buttonizer - Smart Floating & Sticky Buttons
 * Plugin URI:  https://buttonizer.io
 * Description: The Buttonizer is a new way to give a boost to your number of interactions, actions and conversions from your website visitor by adding one or multiple Customizable Smart Floating Button in the corner of your website.
-* Version:     3.4.13
+* Version:     3.5.0
 * Author:      Buttonizer
 * Author URI:  https://buttonizer.io
 * License:     GPLv2 or later
@@ -24,7 +24,7 @@
 */
 
 // Define current Buttonizer version
-define('BUTTONIZER_VERSION', '3.4.13');
+define('BUTTONIZER_VERSION', '3.5.0');
 define('BUTTONIZER_PLUGIN_FILE', __FILE__);
 
 // Get environment vars
@@ -65,6 +65,38 @@ defined('ABSPATH') or die('No script kiddies please!');
 // Autoloader
 require_once BUTTONIZER_APP_DIR . "/autoloader.php";
 
+// Initialize shared core configuration
+\Buttonizer\Core\PluginConfig::init([
+    'name'        => BUTTONIZER_NAME,
+    'dir'         => BUTTONIZER_DIR,
+    'app_dir'     => BUTTONIZER_APP_DIR,
+    'slug'        => BUTTONIZER_SLUG,
+    'version'     => BUTTONIZER_VERSION,
+    'plugin_file' => BUTTONIZER_PLUGIN_FILE,
+    'base_name'   => BUTTONIZER_BASE_NAME,
+    'api_uri'     => BUTTONIZER_API_URI,
+    'api_timeout' => defined("BUTTONIZER_API_TIMEOUT") ? BUTTONIZER_API_TIMEOUT : 20,
+    'page_slug'   => 'Buttonizer',
+    'text_domain' => 'buttonizer-multifunctional-button',
+    'review_url'  => 'https://r.buttonizer.io/review/wordpress?utm_source=wp-plugin-request-review-btn',
+    'product_name' => 'Buttonizer',
+    'notice_id'   => 'buttonizer-admin-notice',
+    'notice_js_function' => 'buttonizerAdminNotice',
+    'referral_slug' => 'buttonizer-plugin-menu',
+    'siblings'    => [
+        'bz_contact_button' => [
+            'token_option'    => 'bz_contact_button_site_connection',
+            'settings_option' => 'bz_contact_button_settings',
+            'account_option'  => 'bz_contact_button_account',
+        ],
+        'bz_social_feeds' => [
+            'token_option'    => 'bz_social_feeds_site_connection',
+            'settings_option' => 'bz_social_feeds_settings',
+            'account_option'  => 'bz_social_feeds_account',
+        ],
+    ],
+]);
+
 // Initialize
 require_once BUTTONIZER_DIR . "/init.php";
 
@@ -74,13 +106,13 @@ register_uninstall_hook(__FILE__, 'pluginUninstallEvent');
 function pluginUninstallEvent()
 {
     // Skip if the is no API token being used
-    if (\Buttonizer\Utils\ApiRequest::getApiToken() === false) {
+    if (\Buttonizer\Core\Utils\ApiRequest::getApiToken() === false) {
         return;
     }
 
     try {
         // Invalidate access token for security reasons on uninstall
-        (new \Buttonizer\Api\Connection\Disconnect)->disconnect(false);
+        (new \Buttonizer\Core\Api\Connection\Disconnect)->disconnect(false);
     } catch (\Error $err) {
         // Errored out, nevermind then
     }

@@ -13,10 +13,10 @@
 
 namespace Buttonizer\Api\Settings;
 
-use Buttonizer\Utils\ApiRequest;
-use Buttonizer\Utils\ButtonizerAccount;
-use Buttonizer\Utils\PermissionCheck;
-use Buttonizer\Utils\Settings;
+use Buttonizer\Core\Utils\ApiRequest;
+use Buttonizer\Core\Utils\Account;
+use Buttonizer\Core\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\Settings;
 
 /**
  * Migration API
@@ -35,10 +35,6 @@ class MigrateToStandalone
             [
                 'methods'  => ['POST'],
                 'args' => [
-                    'skip' => [
-                        'required' => false,
-                        'type' => "boolean"
-                    ],
                     'siteId' => [
                         'required' => false,
                         'type' => "string"
@@ -67,26 +63,6 @@ class MigrateToStandalone
      */
     public function migrate($request)
     {
-        // Skipping migration to standalone
-        if ($request->get_param('skip') === true) {
-            Settings::setSetting("installed_at", new \DateTime('now'));
-            Settings::setSetting("force_legacy", true);
-            Settings::saveUpdatedSettings();
-
-            return [
-                'status' => 'OK'
-            ];
-        }
-
-        if ($request->get_param('unskip') === true) {
-            Settings::setSetting("force_legacy", false);
-            Settings::saveUpdatedSettings();
-
-            return [
-                'status' => 'OK'
-            ];
-        }
-
         // Migrate data before uploading to standalone
         if (Settings::getSetting("migration_version") !== BUTTONIZER_LAST_MIGRATION) {
             (new \Buttonizer\Legacy\Utils\Update())->selfMigrate(Settings::getSetting("migration_version"));
@@ -166,11 +142,11 @@ class MigrateToStandalone
         Settings::saveUpdatedSettings();
 
         // Sync account settings
-        ButtonizerAccount::syncToDatabase($result->account);
+        Account::syncToDatabase($result->account);
 
         return [
             'status' => 'success',
-            'data' => ButtonizerAccount::getData()
+            'data' => Account::getData()
         ];
     }
 

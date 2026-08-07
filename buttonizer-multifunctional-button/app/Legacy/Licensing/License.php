@@ -58,33 +58,40 @@ class License {
 
     public function init() {
         if ( $this->oButtonizer == 'null' ) {
-            require_once BUTTONIZER_DIR . '/freemius/start.php';
-            // Some data for Buttonizer to be freemium and paid.
-            // We are paid so we can maintain the plugin
-            // If you don't want to pay for the plugin, you can allways use the
-            // SUPER COOL FREE VERSION
-            // For more information about our source code:
-            // https://leancoding.co/WDWIG5
-            // To support the development of this plugin,
-            // do NOT remove the code below
-            $this->oButtonizer = fs_dynamic_init( [
-                'id'               => '1219',
-                'slug'             => 'buttonizer-multifunctional-button',
-                'type'             => 'plugin',
-                'public_key'       => 'pk_fcd360d9c82b90a5e874e651ad733',
-                'is_premium'       => false,
-                'has_addons'       => false,
-                'has_paid_plans'   => true,
-                'has_affiliation'  => false,
-                'is_org_compliant' => true,
-                'menu'             => array(
-                    'slug'       => 'Buttonizer',
-                    'first-path' => 'admin.php?page=Buttonizer#/welcome-splash',
-                    'support'    => false,
-                    'contact'    => false,
-                ),
-                'is_live'          => true,
-            ] );
+            $freemius_path = BUTTONIZER_DIR . '/freemius/start.php';
+            // Check if Freemius path is available (not available in the free version, where the SDK is stripped).
+            // When absent, oButtonizer stays null and every caller of ButtonizerLicense()/oButtonizer must null-check it.
+            if ( file_exists( $freemius_path ) ) {
+                require_once $freemius_path;
+                // Some data for Buttonizer to be freemium and paid.
+                // We are paid so we can maintain the plugin
+                // If you don't want to pay for the plugin, you can allways use the
+                // SUPER COOL FREE VERSION
+                // For more information about our source code:
+                // https://leancoding.co/WDWIG5
+                // To support the development of this plugin,
+                // do NOT remove the code below
+                $this->oButtonizer = fs_dynamic_init( [
+                    'id'               => '1219',
+                    'slug'             => 'buttonizer-multifunctional-button',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_fcd360d9c82b90a5e874e651ad733',
+                    'is_premium'       => false,
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'has_affiliation'  => false,
+                    'is_org_compliant' => true,
+                    'menu'             => array(
+                        'slug'       => 'Buttonizer',
+                        'first-path' => 'admin.php?page=Buttonizer#/welcome-splash',
+                        'support'    => false,
+                        'contact'    => false,
+                    ),
+                    'is_live'          => true,
+                ] );
+            } else {
+                $this->oButtonizer = null;
+            }
         }
         return;
     }

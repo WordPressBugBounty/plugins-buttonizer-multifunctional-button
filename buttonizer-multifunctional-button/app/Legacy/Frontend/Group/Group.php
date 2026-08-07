@@ -1,12 +1,12 @@
 <?php
 
-/* 
+/*
  * SOFTWARE LICENSE INFORMATION
- * 
+ *
  * Copyright (c) 2017 Buttonizer, all rights reserved.
- * 
+ *
  * This file is part of Buttonizer
- * 
+ *
  * For detailed information regarding to the licensing of
  * this software, please review the license.txt or visit:
  * https://buttonizer.pro/license/
@@ -15,7 +15,7 @@ namespace Buttonizer\Legacy\Frontend\Group;
 
 use Buttonizer\Legacy\Frontend\Group\Button\Button;
 use Buttonizer\Legacy\Frontend\Buttonizer;
-use Buttonizer\Utils\Settings;
+use Buttonizer\Core\Utils\Settings;
 class Group {
     private $buttons = [];
 
@@ -40,7 +40,7 @@ class Group {
 
     /**
      * Return option data
-     * 
+     *
      * @param $key
      * @param $default null
      * @return string
@@ -51,7 +51,7 @@ class Group {
 
     /**
      * Return option data as boolean
-     * 
+     *
      * @param $key
      * @param $default false
      * @return boolean

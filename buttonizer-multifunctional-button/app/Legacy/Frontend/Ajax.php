@@ -13,7 +13,7 @@
  */
 namespace Buttonizer\Legacy\Frontend;
 
-use Buttonizer\Utils\PermissionCheck;
+use Buttonizer\Core\Utils\PermissionCheck;
 class Ajax {
     private $in_preview = false;
 

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * SOFTWARE LICENSE INFORMATION
  *
@@ -10,49 +11,32 @@
  * this software, please review the license.txt or visit:
  * https://buttonizer.pro/license/
  */
-
 namespace Buttonizer\Legacy\Api;
 
 use Buttonizer\Api\Settings\MigrateToStandalone;
-
 /**
  * Initialize api
  */
-class Api
-{
+class Api {
     private static $authenticated = false;
 
     /**
      * Register API endpoints
      */
-    public function __construct()
-    {
+    public function __construct() {
         // Frontend api endpoints
-        (new Buttons\ApiButtons())->registerRoute();
-
-        // Backend api
-        (new Settings\ApiSettings())->registerRoute();
-        (new Dashboard\ApiDashboard())->registerRoute();
-        (new Utils\ApiImportMigrate())->registerRoute();
-        (new Utils\ApiPublish())->registerRoute();
-        (new Utils\ApiRevert())->registerRoute();
-        (new Utils\ApiReset())->registerRoute();
-        (new Utils\ApiOptin())->registerRoute();
-        (new PageRules\ApiPageRules())->registerRoute();
-        (new TimeSchedules\ApiTimeSchedules())->registerRoute();
-        (new Wordpress\ApiCustomCss())->registerRoute();
-
+        ( new Buttons\ApiButtons() )->registerRoute();
         // Migration route
-        (new MigrateToStandalone())->registerRoute();
+        ( new MigrateToStandalone() )->registerRoute();
     }
 
     /**
      * Return error, need Buttonizer pro
      */
-    public static function needButtonizerPremium()
-    {
+    public static function needButtonizerPremium() {
         return new \WP_Error('missing_premium_license', 'You do not have Buttonizer Pro.', [
-            'status' => 403
+            'status' => 403,
         ]);
     }
+
 }
