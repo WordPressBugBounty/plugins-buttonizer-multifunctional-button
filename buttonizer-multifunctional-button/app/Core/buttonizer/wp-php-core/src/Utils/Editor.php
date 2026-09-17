@@ -7,7 +7,7 @@
  * @package Buttonizer\Core\Utils
  *
  * @license proprietary
- * Modified by buttonizer on 04-August-2026 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by buttonizer on 16-September-2026 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace Buttonizer\Core\Utils;

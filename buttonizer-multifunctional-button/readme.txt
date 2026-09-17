@@ -3,8 +3,8 @@ Contributors: Buttonizer, freemius
 Buy plugin: https://buttonizer.io
 Tags: Conversion, action button, call, marketing, Social Sharing
 Requires at least: 4.7
-Tested up to: 7.0
-Stable tag: 3.5.0
+Tested up to: 7.1
+Stable tag: 3.6.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -312,6 +312,15 @@ To provide icon libraries and animations, Buttonizer may use the following 3rd p
 11. Use our dashboard directly from within WordPress to edit your buttons and review conversion reports.
 
 == Changelog ==
+
+= 3.6.0 =
+Release date: September 15, 2026
+
+**Changelog:**
+- Added migration support for Button Contact VR: import your buttons, settings and connection into Buttonizer
+- Bug fixes
+
+If you experience bugs, problems or you just have some feedback, let us know on our [Buttonizer community](https://community.buttonizer.pro/)!
 
 = 3.5.0 =
 Release date: August 5, 2026

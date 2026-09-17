@@ -32,6 +32,9 @@ class Api extends BaseApi
         // We can't call the Freemius split conditional here to remove these routes because we don't have the Freemius
         // object available outside Legacy folder.
         (new Utils\DeleteLegacyBackup())->registerRoute();
+
+        // The way back to an absorbed plugin's old system
+        (new Utils\UseLegacyModule())->registerRoute();
     }
 
     /**

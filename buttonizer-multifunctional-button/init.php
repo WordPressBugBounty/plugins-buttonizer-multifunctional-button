@@ -31,6 +31,15 @@ if (
         \Buttonizer\Api\Api::class
     );
 
+    // Serve an absorbed plugin's own system, for sites that still run it.
+    // Before the hooks below, because the module registers its own.
+    \Buttonizer\Migration\ModuleLoader::boot();
+
+    // Absorb acquired plugins (admin only). Deliberately outside the legacy
+    // branch: a Buttonizer install that still runs its own legacy system is
+    // not in a position to take over another plugin's users.
+    \Buttonizer\Migration\MigrationManager::boot();
+
     // Google Analytics (legacy 2.x setting, buttonizer-specific)
     add_action('wp_enqueue_scripts', function () {
         if (Settings::isset("google_analytics")) {

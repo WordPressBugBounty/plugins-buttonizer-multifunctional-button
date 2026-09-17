@@ -16,6 +16,7 @@ namespace Buttonizer\Admin;
 use Buttonizer\Api\Settings\MigrateToStandalone;
 use Buttonizer\Core\Admin\BaseAdmin;
 use Buttonizer\Core\Utils\PermissionCheck;
+use Buttonizer\Migration\LegacyFallback;
 
 # No script kiddies
 defined('ABSPATH') or die('No script kiddies please!');
@@ -84,6 +85,27 @@ class Admin extends BaseAdmin
         }
 
         return parent::getActionLock();
+    }
+
+    /**
+     * Dashboard configuration.
+     *
+     * Adds whether this site can go back to an absorbed plugin's old system,
+     * so the signup screen can offer it the way that plugin used to.
+     *
+     * @return array
+     */
+    protected function getLocalizeData(): array
+    {
+        $data = parent::getLocalizeData();
+
+        $source = LegacyFallback::available();
+
+        // Only ever offered to a site whose old system Buttonizer took over,
+        // so the name that means something here is the old one.
+        $data['legacyModule'] = $source ? ['label' => $source->legacyLabel()] : null;
+
+        return $data;
     }
 
     /**
